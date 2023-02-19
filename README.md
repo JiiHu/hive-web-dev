@@ -1,38 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hive: Getting started with Web Development
+This is project was created for a live coding session at [Hive Helsinki](https://www.hive.fi/en/). Goal of the session was to showcase how to get started with Web Development using React, Next.js, Tailwind CSS, and Spotify APIs.
 
-## Getting Started
+## Step to re-proroduce the project
+Here is the list of steps one needs to complete to achieve somewhat the same end result that the showcased project has. As these were written before the live presentation, there might be a step or two missing, or the steps might in a different order.
 
-First, run the development server:
+### Preparation
+These steps were done before the presentation to speed up the start. Here is a full list what was done before.
+- Create project with `npx create-next-app@latest` from [Next.js](https://nextjs.org/docs/getting-started)
+  - If this fails, it probably means that you don't have Node installed on your machine.
+  - If you don't have Node, you should install it through [node version manager (nvm)](https://github.com/nvm-sh/nvm). `nvm` allows you to later on easily change the used Node version and is the preferred way to install Node. Installing `node` without nvm might end up in messy installation at the end of the day.
+- Install eslint rules
+  - `npm install --save @babel/eslint-parser`
+  - `npx install-peerdeps --dev eslint-config-airbnb` from [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+  - `npm install --save-dev eslint-plugin-prettier` from [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier)
+  - `npm install --save-dev eslint-config-next` from [eslint-config-next](https://www.npmjs.com/package/eslint-config-next)
+  - `npm install --save-dev @next/eslint-plugin-next` from [@next/eslint-plugin-next](https://nextjs.org/docs/basic-features/eslint#eslint-plugin)
+  - `npm install --save-dev eslint-config-prettier` from [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+  - `npm install eslint eslint-plugin-react --save-dev` from [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)
+- Copy nice rules from my previous projects to `.eslintrc.js` and `.prettierrc.js`
+- Reset styles & move used font to `_app.js`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### "Actual" coding
+- Create basic components like `Button` and `Input`
+- [Install Tailwind](https://tailwindcss.com/docs/guides/nextjs)
+- Create application to [Spotify for Developers](https://developer.spotify.com/dashboard/applications)
+- [Install NextAuth.js](https://next-auth.js.org/getting-started/example)
+  - Custom scopes
+  - Custom callbacks for `session` and `jwt`
+- Create `.env` file
+  - `JWT_SECRET`
+    - Created using `jose newkey -s 512 -t oct -a HS512`
+  - `NEXTAUTH_URL`
+    - `http://localhost:3000`
+- [Install `spotify-web-api-node`](https://github.com/thelinmichael/spotify-web-api-node)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Main Tools
+- [Next.js](https://nextjs.org/) as framework
+- [Tailwind CSS](https://tailwindcss.com/) for styles
+- [Flowbite](https://flowbite.com/) for Tailwind component styles
+- [Spotify Web API](https://developer.spotify.com/documentation/web-api/) through [spotify-web-api-node](https://github.com/thelinmichael/spotify-web-api-node)
+- [NextAuth.js](https://next-auth.js.org/) to authenticate with Spotify
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Notes
+While working on this, I came across this amazing tutorial: [🔴 Let's build Spotify 2.0 with NEXT.JS 12.0!](https://www.youtube.com/watch?v=3xrko3GpYoU). If you are interested on expanding this small app, the video is definitely worth checking out.
