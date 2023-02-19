@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import styles from 'styles/Home.module.css'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -13,6 +13,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
@@ -105,3 +106,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home

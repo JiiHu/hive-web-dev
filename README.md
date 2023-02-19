@@ -6,24 +6,33 @@ Here is the list of steps one needs to complete to achieve somewhat the same end
 
 ### Preparation
 These steps were done before the presentation to speed up the start. Here is a full list what was done before.
+
 - Create project with `npx create-next-app@latest` from [Next.js](https://nextjs.org/docs/getting-started)
   - If this fails, it probably means that you don't have Node installed on your machine.
   - If you don't have Node, you should install it through [node version manager (nvm)](https://github.com/nvm-sh/nvm). `nvm` allows you to later on easily change the used Node version and is the preferred way to install Node. Installing `node` without nvm might end up in messy installation at the end of the day.
-- Install eslint rules
-  - `npm install --save @babel/eslint-parser`
-  - `npx install-peerdeps --dev eslint-config-airbnb` from [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
-  - `npm install --save-dev eslint-plugin-prettier` from [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier)
-  - `npm install --save-dev eslint-config-next` from [eslint-config-next](https://www.npmjs.com/package/eslint-config-next)
-  - `npm install --save-dev @next/eslint-plugin-next` from [@next/eslint-plugin-next](https://nextjs.org/docs/basic-features/eslint#eslint-plugin)
-  - `npm install --save-dev eslint-config-prettier` from [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
-  - `npm install eslint eslint-plugin-react --save-dev` from [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)
+- Install `eslint` rules
+  - Read more about eslint from [Why (and how) to use eslint](https://medium.com/the-node-js-collection/why-and-how-to-use-eslint-in-your-project-742d0bc61ed7) article
+  - Commands to run
+    - `npm install --save @babel/eslint-parser`
+    - `npx install-peerdeps --dev eslint-config-airbnb` from [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+    - `npm install --save-dev eslint-plugin-prettier` from [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier)
+    - `npm install --save-dev eslint-config-next` from [eslint-config-next](https://www.npmjs.com/package/eslint-config-next)
+    - `npm install --save-dev @next/eslint-plugin-next` from [@next/eslint-plugin-next](https://nextjs.org/docs/basic-features/eslint#eslint-plugin)
+    - `npm install --save-dev eslint-config-prettier` from [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier)
+    - `npm install eslint eslint-plugin-react --save-dev` from [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)
 - Copy nice rules from my previous projects to `.eslintrc.js` and `.prettierrc.js`
-- Reset styles & move used font to `_app.js`
+  - You can see the end result on these files as there is no source to be shared
+- Reseting styles & moving used font to `_app.js` for global usage
 
 ### "Actual" coding
+Here are the things which are part of the live coding session.
+
+- Empty `index.js` from Vercel's placeholder
 - Create basic components like `Button` and `Input`
+- Implement basic search functionality to homepage
 - [Install Tailwind](https://tailwindcss.com/docs/guides/nextjs)
 - Create application to [Spotify for Developers](https://developer.spotify.com/dashboard/applications)
+- [Install `spotify-web-api-node`](https://github.com/thelinmichael/spotify-web-api-node)
 - [Install NextAuth.js](https://next-auth.js.org/getting-started/example)
   - Custom scopes
   - Custom callbacks for `session` and `jwt`
@@ -32,7 +41,13 @@ These steps were done before the presentation to speed up the start. Here is a f
     - Created using `jose newkey -s 512 -t oct -a HS512`
   - `NEXTAUTH_URL`
     - `http://localhost:3000`
-- [Install `spotify-web-api-node`](https://github.com/thelinmichael/spotify-web-api-node)
+- Create login/logout button which takes into account if you are logged in or not
+- Create endpoint to `api` folder and list songs on homepage
+- Create subpage for single track
+  - List the song details
+  - List recommended songs
+- Deploy the application on Vercel.com
+
 
 ## Main Tools
 - [Next.js](https://nextjs.org/) as framework
