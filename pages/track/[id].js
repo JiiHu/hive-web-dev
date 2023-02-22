@@ -1,8 +1,10 @@
 import React from 'react'
-import { getSession } from 'next-auth/react'
+import { getServerSession } from 'next-auth/next'
 import SpotifyWebApi from 'spotify-web-api-node'
 
 import SpotifyTrack from 'components/SpotifyTrack'
+
+import { authOptions } from 'pages/api/auth/[...nextauth]'
 
 const Track = ({ track, recommendations }) => {
   const imageUrl = track.album && track.album?.images[0]?.url
@@ -43,10 +45,10 @@ const Track = ({ track, recommendations }) => {
   )
 }
 
-export async function getServerSideProps({ req, query }) {
+export async function getServerSideProps({ req, res, query }) {
   const { id } = query
 
-  const session = await getSession({ req })
+  const session = await getServerSession(req, res, authOptions)
   if (!session) {
     return { notFound: true }
   }
