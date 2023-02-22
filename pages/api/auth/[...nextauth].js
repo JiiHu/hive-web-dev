@@ -33,6 +33,7 @@ export const authOptions = {
     })
     // ...add more providers here
   ],
+  secret: process.env.JWT_SECRET,
   callbacks: {
     async session({ session, token }) {
       // Send properties to the client
