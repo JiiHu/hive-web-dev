@@ -36,6 +36,7 @@ export const authOptions = {
   callbacks: {
     async session({ session, token }) {
       // Send properties to the client
+      // eslint-disable-next-line no-param-reassign
       session.accessToken = token.accessToken
 
       return session
@@ -43,7 +44,9 @@ export const authOptions = {
     async jwt({ token, account }) {
       if (account) {
         // Save access token to JWT token
+        // eslint-disable-next-line no-param-reassign
         token.accessToken = account.access_token
+        // eslint-disable-next-line no-param-reassign
         token.refreshToken = account.refresh_token
       }
 
