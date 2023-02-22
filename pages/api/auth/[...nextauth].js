@@ -28,6 +28,8 @@ const scopes = [
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
+    // Configuration options are here:
+    // https://github.com/nextauthjs/next-auth/blob/main/packages/next-auth/src/providers/spotify.ts
     SpotifyProvider({
       authorization: `https://accounts.spotify.com/authorize?scope=${scopes.join(',')}`,
       clientId: process.env.SPOTIFY_CLIENT_ID,
@@ -36,7 +38,7 @@ export const authOptions = {
   ],
   callbacks: {
     async session({ session, token }) {
-      // Send properties to the client
+      // Send accessToken to the client so we can use it later on
       // eslint-disable-next-line no-param-reassign
       session.accessToken = token.accessToken
 
@@ -44,7 +46,7 @@ export const authOptions = {
     },
     async jwt({ token, account }) {
       if (account) {
-        // Save access token to JWT token
+        // Save access token to JWT token for later use
         // eslint-disable-next-line no-param-reassign
         token.accessToken = account.access_token
         // eslint-disable-next-line no-param-reassign

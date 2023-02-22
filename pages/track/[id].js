@@ -45,10 +45,13 @@ const Track = ({ track, recommendations }) => {
   )
 }
 
+// Everything that is inside this function, runs on server
 export async function getServerSideProps({ req, res, query }) {
   const { id } = query
 
   const session = await getServerSession(req, res, authOptions)
+
+  // Show this page for only logged in people
   if (!session) {
     return { notFound: true }
   }
@@ -58,6 +61,7 @@ export async function getServerSideProps({ req, res, query }) {
 
   const result = await spotifyApi.getTracks([id])
 
+  // If spotify returns error, lets say that the page is not found
   if (result.statusCode !== 200) {
     return { notFound: true }
   }
@@ -68,10 +72,12 @@ export async function getServerSideProps({ req, res, query }) {
     min_popularity: 50
   })
 
+  // Just take the first track from results to make it easy
   const track = result.body.tracks[0]
 
   return {
     props: {
+      // Everything inside this object, will be returned as prop to the <Track /> component above
       track,
       recommendations: recommendations.body.tracks
     }

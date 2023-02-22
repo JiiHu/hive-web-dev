@@ -57,6 +57,8 @@ It seems that the NextAuth Secret was incorrectly set. How it was fixed:
 - Set the value from the command above to Vercel Environment Variables as `NEXTAUTH_SECRET`
 - Changed `getSession` to `getServerSession` in the `/api/spotify/search/[keyword]` as it seems that the newest NextAuth works differently than what I was used to
 
+In addition to the fixes, I improved the UI a bit and added a separate page for single Spotify tracks.
+
 
 ## Main Tools
 - [Next.js](https://nextjs.org/) as framework

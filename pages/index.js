@@ -12,13 +12,19 @@ const Home = () => {
   const [data, setData] = useState(null)
 
   const onClick = async () => {
-    const result = await fetch(`/api/spotify/search/${keyword}`)
-    const json = await result.json()
+    // Do the API call in try/catch, cause otherwise error there would crash the whole app
+    try {
+      const result = await fetch(`/api/spotify/search/${keyword}`)
+      const json = await result.json()
 
-    if (json.success) {
-      setData(json.data.items)
-    } else {
-      // TODO: handle error
+      if (json.success) {
+        setData(json.data.items)
+      } else {
+        // TODO: handle error so that user knows about it
+      }
+    } catch (e) {
+      console.error(e)
+      // TODO: handle error so that user knows about it
     }
   }
 

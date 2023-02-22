@@ -7,8 +7,12 @@ import AuthButton from 'components/AuthButton'
 
 import 'styles/globals.css'
 
+// Use this font from Google Fonts. Comes by default in Next.js app
 const inter = Inter({ subsets: ['latin'] })
 
+// Everything inside this '_app.js' wrapper is rendered for ALL pages (except APIs).
+// This means for example the homepage (/pages.index.js),
+// and the single track page (/pages/track/[id].js)
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <div className={`container mx-auto ${inter.className}`}>
