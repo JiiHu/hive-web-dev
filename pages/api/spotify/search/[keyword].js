@@ -7,6 +7,9 @@ const handler = async (req, res) => {
       query: { keyword }
     } = req
     const session = await getSession({ req })
+    if (!session) {
+      throw new Error('No session found')
+    }
 
     const spotifyApi = new SpotifyWebApi()
     spotifyApi.setAccessToken(session.accessToken)
