@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth'
 import SpotifyProvider from 'next-auth/providers/spotify'
 
+// List all the Spotify scopes we want to use. This list will give basically
+// access to everything you can do through Spotify APIs
 const scopes = [
   'ugc-image-upload',
   'user-read-playback-state',
@@ -31,7 +33,6 @@ export const authOptions = {
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET
     })
-    // ...add more providers here
   ],
   callbacks: {
     async session({ session, token }) {

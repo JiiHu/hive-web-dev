@@ -1,6 +1,8 @@
 # Hive: Getting started with Web Development
 This is project was created for a live coding session at [Hive Helsinki](https://www.hive.fi/en/). Goal of the session was to showcase how to get started with Web Development using React, Next.js, Tailwind CSS, and Spotify APIs.
 
+Live at [hive-spotify.vercel.app](https://hive-spotify.vercel.app/).
+
 ## Step to re-proroduce the project
 Here is the list of steps one needs to complete to achieve somewhat the same end result that the showcased project has. As these were written before the live presentation, there might be a step or two missing, or the steps might in a different order.
 
