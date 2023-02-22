@@ -52,7 +52,6 @@ Here are the things which are part of the live coding session.
     - `http://localhost:3000`
 - Create login/logout button which takes into account if you are logged in or not
 - Create endpoint to `api` folder and list songs on homepage
-
 - Deploy the application on Vercel.com
 
 ### Fixing the project after presentation
