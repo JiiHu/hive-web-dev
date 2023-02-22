@@ -48,6 +48,13 @@ Here are the things which are part of the live coding session.
   - List recommended songs
 - Deploy the application on Vercel.com
 
+### Fixing the project after presentation
+It seems that the NextAuth Secret was incorrectly set. How it was fixed:
+- Renamed the variable as the default one with key `NEXTAUTH_SECRET`
+- Created this with the [suggested command](https://next-auth.js.org/configuration/options#secret) of `openssl rand -base64 32`
+- Set the value from the command above to Vercel Environment Variables as `NEXTAUTH_SECRET`
+- Changed `getSession` to `getServerSession` in the `/api/spotify/search/[keyword]` as it seems that the newest NextAuth works differently than what I was used to
+
 
 ## Main Tools
 - [Next.js](https://nextjs.org/) as framework
