@@ -3,6 +3,13 @@ This is project was created for a live coding session at [Hive Helsinki](https:/
 
 Live at [hive-spotify.vercel.app](https://hive-spotify.vercel.app/).
 
+## How to run the project
+- Run `npm install` to install dependencies
+- Add environment variables to `.env`. You can look for `.env.example` for examples
+  - For this you will need to create Spotify application on their dashboard
+  - `NEXTAUTH_SECRET` can be generated with `openssl rand -base64 32`
+- Start with `npm run dev`
+
 ## Step to re-proroduce the project
 Here is the list of steps one needs to complete to achieve somewhat the same end result that the showcased project has. As these were written before the live presentation, there might be a step or two missing, or the steps might in a different order.
 
@@ -45,9 +52,7 @@ Here are the things which are part of the live coding session.
     - `http://localhost:3000`
 - Create login/logout button which takes into account if you are logged in or not
 - Create endpoint to `api` folder and list songs on homepage
-- Create subpage for single track
-  - List the song details
-  - List recommended songs
+
 - Deploy the application on Vercel.com
 
 ### Fixing the project after presentation
