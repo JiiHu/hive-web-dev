@@ -1,4 +1,7 @@
-# Hive: Getting started with Web Development
+# Hive: Getting started with Web Development (2023)
+
+**This is from my presentation in 2023**
+
 This is project was created for a live coding session at [Hive Helsinki](https://www.hive.fi/en/). Goal of the session was to showcase how to get started with Web Development using React, Next.js, Tailwind CSS, and Spotify APIs.
 
 Live at [hive-spotify.vercel.app](https://hive-spotify.vercel.app/).
